@@ -4,6 +4,7 @@
  */
 #include <stdio.h>
 #include <math.h>
+#include <stdbool.h>
 
 /* Short pi calculation */
 void pi(void){
@@ -13,7 +14,9 @@ void pi(void){
 }
 
 /* More funny math
-   Check if number is a prime no
+   Returns:
+   0 if not prime
+   1 if prime
 */
 int is_prime(int n){
     if (n<2){
@@ -26,20 +29,30 @@ int is_prime(int n){
     int i = 2;
     while (i <= max) {
         if (n % i == 0){
-            printf("%d is not a prime number\n", n);
-            return 0;
+            return false;
         }
         i++;
     }
-    printf("%d is a prime number!\n", n);
+    return true;
+}
 
-    return 0;
+/* Test if prime and write result */
+void test_no(int number){
+    if(is_prime(number)) {
+        printf("%d is a prime number!\n", number);
+    }
+    else {
+        printf("%d is not a prime number!\n", number);
+
+    }
 }
 
 int main (void){
     pi();
 
-    is_prime(223);
+    test_no(223);
+    test_no(3863);
+    test_no(583);
 
     return 0;
 }
