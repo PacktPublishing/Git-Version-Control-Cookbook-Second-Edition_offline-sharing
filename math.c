@@ -47,12 +47,27 @@ void test_no(int number){
     }
 }
 
+/* Continue the prime fun,
+ * calculate the number of prime in given range
+ */
+void primes(from, to){
+    int i;
+    int count = 0;
+    for (i=from; i<=to; i++){
+        if (is_prime(i)){
+            count++;
+        }
+    }
+    printf("Number of prime numbers between %d and %d: %d\n", from, to, count);
+}
+
 int main (void){
     pi();
 
     test_no(223);
     test_no(3863);
     test_no(583);
+    primes(0, 5000);
 
     return 0;
 }
