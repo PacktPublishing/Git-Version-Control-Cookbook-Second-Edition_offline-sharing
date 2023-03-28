@@ -1,0 +1,44 @@
+From 0276427284e6d86aca623ec68b974b860e9c3d1b Mon Sep 17 00:00:00 2001
+From: John Doe <john.doe@example.com>
+Date: Wed, 9 Apr 2014 21:50:18 +0200
+Subject: [PATCH 3/3] Adds functionality to prime-test a range of numbers
+
+---
+ math.c | 15 +++++++++++++++
+ 1 file changed, 15 insertions(+)
+
+diff --git a/math.c b/math.c
+index 590d89a..722a8c6 100644
+--- a/math.c
++++ b/math.c
+@@ -47,12 +47,27 @@ void test_no(int number){
+     }
+ }
+ 
++/* Continue the prime fun,
++ * calculate the number of prime in given range
++ */
++void primes(from, to){
++    int i;
++    int count = 0;
++    for (i=from; i<=to; i++){
++        if (is_prime(i)){
++            count++;
++        }
++    }
++    printf("Number of prime numbers between %d and %d: %d\n", from, to, count);
++}
++
+ int main (void){
+     pi();
+ 
+     test_no(223);
+     test_no(3863);
+     test_no(583);
++    primes(0, 5000);
+ 
+     return 0;
+ }
+-- 
+2.37.2.windows.2
+

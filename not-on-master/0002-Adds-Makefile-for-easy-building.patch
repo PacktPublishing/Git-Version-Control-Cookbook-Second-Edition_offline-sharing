@@ -1,0 +1,29 @@
+From cf3249e0512308a9387e6d0aac7174de1f6f1a0e Mon Sep 17 00:00:00 2001
+From: John Doe <john.doe@example.com>
+Date: Wed, 9 Apr 2014 21:42:18 +0200
+Subject: [PATCH 2/3] Adds Makefile for easy building
+
+---
+ Makefile | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
+ create mode 100644 Makefile
+
+diff --git a/Makefile b/Makefile
+new file mode 100644
+index 0000000..211f351
+--- /dev/null
++++ b/Makefile
+@@ -0,0 +1,10 @@
++SRCS = math.c
++CC = gcc
++CFLAGS = -lm -Wall
++
++math: $(SRCS)
++
++all: math
++
++clean:
++	rm -f math math.exe
+-- 
+2.37.2.windows.2
+
